@@ -24,7 +24,7 @@ import HelloWorld from "./components/HelloWorld.vue";
   </header>
 
   <RouterView />
-  <h1>git 공부중입니다</h1>
+  <h1>git 공부중입니다.</h1>
 </template>
 
 <style scoped>
