@@ -1,31 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+import DefaultLayout from "./components/layouts/DefaultLayout.vue";
 </script>
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
-  <h1>git 공부중입니다.</h1>
-  <h1> 이렇게 하면 충돌이 날까요?</h1>
+  <DefaultLayout>
+        <RouterView />
+    </DefaultLayout>
 </template>
 
 <style scoped>
