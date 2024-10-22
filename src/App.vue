@@ -1,6 +1,6 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+import { RouterLink, RouterView } from 'vue-router';
+import HelloWorld from './components/HelloWorld.vue';
 </script>
 
 <template>
@@ -25,6 +25,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 
   <RouterView />
   <h1>git 공부중입니다.</h1>
+  <h1>test</h1>
 </template>
 
 <style scoped>
