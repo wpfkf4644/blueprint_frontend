@@ -25,6 +25,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 
   <RouterView />
   <h1>git 공부중입니다.</h1>
+  <h1> 이렇게 하면 충돌이 날까요?</h1>
 </template>
 
 <style scoped>
