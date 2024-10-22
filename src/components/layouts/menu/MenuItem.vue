@@ -4,11 +4,13 @@ const props = defineProps({
 });
 </script>
 <template>
-    <li class="nav-item">
-        <router-link class="nav-link" :to="menu.url">
-            <i :class="menu.icon"></i>
+    <li class="px-3 py-2">
+        <router-link 
+            class="flex items-center text-white hover:text-gray-200 transition-colors duration-200" 
+            :to="menu.url"
+        >
+            <i :class="[menu.icon, 'mr-2']"></i>
             {{ menu.title }}
         </router-link>
     </li>
 </template>
-<style></style>

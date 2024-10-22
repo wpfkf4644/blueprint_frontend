@@ -57,85 +57,70 @@ const join = async () => {
     }
 };
 </script>
+
 <template>
-    <div class="mt-5 mx-auto" style="width: 500px">
+    <div class="mt-5 mx-auto w-[500px]">
         <h1 class="my-5">
             <i class="fa-solid fa-user-plus"></i>
             회원 가입
         </h1>
         <form @submit.prevent="join">
             <div class="mb-3 mt-3">
-                <label for="username" class="form-label">
+                <label for="username" class="block mb-2">
                     <i class="fa-solid fa-user"></i>
-                    사용자 ID :
+                    사용자 ID:
                     <button
                         type="button"
-                        class="btn btn-success btn-sm py-0 me-2"
+                        class="px-2 py-0 ml-2 bg-green-600 text-white rounded-md text-sm"
                         @click="checkUsername"
                     >
                         ID 중복 확인
                     </button>
                     <span
-                        :class="
-                            disableSubmit.value ? 'text-primary' : 'text-danger'
-                        "
-                        >{{ checkError }}</span
-                    >
+                        :class="disableSubmit ? 'text-blue-600' : 'text-red-600'"
+                    >{{ checkError }}</span>
                 </label>
                 <input
                     type="text"
-                    class="form-control"
+                    class="w-full px-3 py-2 border rounded-md"
                     placeholder="사용자 ID"
                     id="username"
                     @input="changeUsername"
                     v-model="member.username"
                 />
             </div>
-            <div>
-                <label for="avatar" class="form-label">
-                    <i class="fa-solid fa-user-astronaut"></i>
-                    아바타 이미지:
-                </label>
-                <input
-                    type="file"
-                    class="form-control"
-                    ref="avatar"
-                    id="avatar"
-                    accept="image/png, image/jpeg"
-                />
-            </div>
             <div class="mb-3 mt-3">
-                <label for="email" class="form-label">
+                <label for="email" class="block mb-2">
                     <i class="fa-solid fa-envelope"></i>
                     email
                 </label>
                 <input
                     type="email"
-                    class="form-control"
+                    class="w-full px-3 py-2 border rounded-md"
                     placeholder="Email"
                     id="email"
                     v-model="member.email"
                 />
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">
+                <label for="password" class="block mb-2">
                     <i class="fa-solid fa-lock"></i> 비밀번호:
                 </label>
                 <input
                     type="password"
-                    class="form-control"
+                    class="w-full px-3 py-2 border rounded-md"
                     placeholder="비밀번호"
                     id="password"
                     v-model="member.password"
                 />
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">
+                <label for="password2" class="block mb-2">
                     <i class="fa-solid fa-lock"></i> 비밀번호 확인:
                 </label>
                 <input
                     type="password"
-                    class="form-control"
+                    class="w-full px-3 py-2 border rounded-md"
                     placeholder="비밀번호 확인"
                     id="password2"
                     v-model="member.password2"
@@ -143,7 +128,7 @@ const join = async () => {
             </div>
             <button
                 type="submit"
-                class="btn btn-primary mt-4"
+                class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
                 :disabled="disableSubmit"
             >
                 <i class="fa-solid fa-user-plus"></i>

@@ -1,22 +1,22 @@
 export default {
-    title: "Scoula", // 메인 타이틀
-    subtitle: "KB Fullstack 학습(Vue+Spring)", // 서브 타이틀
+    title: "청사진", // 메인 타이틀
+    subtitle: "정책 추천 서비스", // 서브 타이틀
     menus: [
         // 메인 메뉴 구성 정보
         {
-            title: "게시판",
-            url: "/board/list",
+            title: "정책",
+            url: "/policy",
             icon: "fa-solid fa-paste",
         },
         {
-            title: "여행",
-            url: "/travel/list",
-            icon: "fa-solid fa-plane-departure",
+            title: "청약",
+            url: "/subscription",
+            icon: "fas fa-building",
         },
         {
-            title: "갤러리",
-            url: "/gallery/list",
-            icon: "fa-regular fa-images",
+            title: "금융",
+            url: "/economy",
+            icon: "fa-solid fa-coins",
         },
     ],
     accountMenus: {
@@ -24,12 +24,12 @@ export default {
         login: {
             url: "/auth/login",
             title: "로그인",
-            icon: "fa-solid fa-right-to-bracket",
+            icon: "far fa-user",
         },
         join: {
             url: "/auth/join",
             title: "회원가입",
-            icon: "fa-solid fa-user-plus",
+            icon: "fa-regular fa-user",
         },
     },
 };

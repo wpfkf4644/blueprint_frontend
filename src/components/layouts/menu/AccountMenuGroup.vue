@@ -11,7 +11,7 @@ const islogin = computed(() => auth.isLogin);
 const username = computed(() => auth.username);
 </script>
 <template>
-    <ul class="navbar-nav ms-auto">
+    <ul class="flex flex-col md:flex-row ml-auto">
         <template v-if="islogin">
             <AccountMenuItem :username="username" />
             <LogoutMenuItem />

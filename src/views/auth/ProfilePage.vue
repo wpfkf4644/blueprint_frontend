@@ -33,64 +33,53 @@ const onSubmit = async () => {
 };
 </script>
 <template>
-    <div class="mt-5 mx-auto" style="width: 500px">
-        <h1><i class="fa-solid fa-user-gear my-3"></i> 회원 정보</h1>
+    <div class="mt-5 mx-auto w-[500px]">
+        <h1 class="my-3">
+            <i class="fa-solid fa-user-gear"></i> 회원 정보
+        </h1>
         <form @submit.prevent="onSubmit">
             <div class="mb-3 mt-3">
-                <img :src="avatarPath" class="avatar avatar-lg me-4" />
+                <img :src="avatarPath" class="w-16 h-16 rounded-full mr-4" />
                 {{ member.username }}
             </div>
             <div class="mb-3 mt-3">
-                <label for="avatar" class="form-label">
-                    <i class="fa-solid fa-user-astronaut"></i>
-                    아바타 이미지:
-                </label>
-                <input
-                    type="file"
-                    class="form-control"
-                    ref="avatar"
-                    id="avatar"
-                    accept="image/png, image/jpeg"
-                />
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="email" class="form-label">
+                <label for="email" class="block mb-2">
                     <i class="fa-solid fa-envelope"></i>
                     email
                 </label>
                 <input
                     type="email"
-                    class="form-control"
+                    class="w-full px-3 py-2 border rounded-md"
                     placeholder="Email"
                     id="email"
                     v-model="member.email"
                 />
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">
+                <label for="password" class="block mb-2">
                     <i class="fa-solid fa-lock"></i>
                     비밀번호:
                 </label>
                 <input
                     type="password"
-                    class="form-control"
+                    class="w-full px-3 py-2 border rounded-md"
                     placeholder="비밀번호"
                     id="password"
                     v-model="member.password"
                 />
             </div>
-            <div v-if="error" class="text-danger">{{ error }}</div>
+            <div v-if="error" class="text-red-600">{{ error }}</div>
             <div class="text-center">
                 <button
                     type="submit"
-                    class="btn btn-primary mt-4 me-3"
+                    class="mt-4 mr-3 px-4 py-2 bg-blue-600 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
                     :disabled="disableSubmit"
                 >
                     <i class="fa-solid fa-user-plus"></i>
                     확인
                 </button>
                 <router-link
-                    class="btn btn-primary mt-4"
+                    class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md inline-block"
                     to="/auth/changepassword"
                 >
                     <i class="fa-solid fa-lock"></i>

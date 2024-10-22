@@ -3,36 +3,67 @@ import { reactive, computed } from "vue";
 import config from "@/config";
 import MenuGroup from "./menu/MenuGroup.vue";
 import AccountMenuGroup from "./menu/AccountMenuGroup.vue";
+
 let state = reactive({ isNavShow: false });
 let navClass = computed(() =>
     state.isNavShow
-        ? "collapse navbar-collapse show"
-        : "collapse navbar-collapse"
+        ? "block"
+        : "hidden"
 );
 const toggleNavShow = () => (state.isNavShow = !state.isNavShow);
 </script>
+
 <template>
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-        <div class="container-fluid">
-            <router-link class="navbar-brand" to="/">
-                <i class="fa-solid fa-house"></i>
-                Scoula
-            </router-link>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapsibleNavbar"
-                @click="toggleNavShow"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div :class="navClass" id="collapsibleNavbar">
-                <!-- 추후 작업 예정 -->
-                <MenuGroup :menus="config.menus" />
-                <AccountMenuGroup />
+    <nav class="bg-blue-600 text-white shadow-lg rounded-xl">
+        <div class="container mx-auto px-6 rounded-xl bg-blue-700">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <!-- 좌측: 로고와 메뉴그룹 -->
+                    <router-link 
+                        class="text-white py-4 text-2xl font-semibold flex items-center hover:text-gray-200 transition-colors duration-200 mr-8" 
+                        to="/"
+                    >
+                        <i class="fab fa-windows text-white mr-3 text-3xl"></i>
+                        청사진
+                    </router-link>
+ 
+                    <!-- MenuGroup을 로고 옆으로 -->
+                    <div class="hidden md:block">
+                        <MenuGroup :menus="config.menus" />
+                    </div>
+                </div>
+ 
+                <!-- 우측: AccountMenuGroup -->
+                <div class="flex items-center">
+                    <div class="hidden md:block">
+                        <AccountMenuGroup />
+                    </div>
+                    
+                    <!-- 모바일 메뉴 버튼 -->
+                    <button
+                        class="md:hidden p-3 hover:bg-blue-700 rounded-lg transition-colors duration-200"
+                        type="button"
+                        @click="toggleNavShow"
+                    >
+                        <span class="block w-7 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-7 h-0.5 bg-white mb-1.5"></span>
+                        <span class="block w-7 h-0.5 bg-white"></span>
+                    </button>
+                </div>
+ 
+                <!-- 모바일 메뉴 -->
+                <div 
+                    :class="[navClass, 'md:hidden absolute top-16 left-0 right-0 bg-blue-600 w-full shadow-lg z-50']"
+                    id="collapsibleNavbar"
+                >
+                    <div class="flex flex-col py-2">
+                        <MenuGroup :menus="config.menus" />
+                        <AccountMenuGroup />
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
-</template>
+ </template>
+
 <style></style>
